@@ -8,4 +8,45 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TranslucentTheme" parent="@style/Theme.AppCompat.Light.NoActionBar"></style>
+
+    <style name="text_white">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="text_black">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black_dft</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="horizontal_divider">
+        <item name="android:layout_height">0.8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/dividing_dark</item>
+    </style>
+
+    <style name="horizontal_divider_light">
+        <item name="android:layout_height">0.8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/dividing_light</item>
+    </style>
+
+    <style name="vertical_divider">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0.8dp</item>
+        <item name="android:background">@color/dividing_dark</item>
+    </style>
+
+    <style name="vertical_divider_light">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0.8dp</item>
+        <item name="android:background">@color/dividing_light</item>
+    </style>
+
+
 </resources>

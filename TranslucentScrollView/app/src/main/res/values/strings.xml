@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">TranslucentScrollView</string>
+    <string name="auther">作者:严俊晖</string>
+    <string name="email">303767416@qq.com</string>
+
+    <string name="shopping_car">购物车</string>
+    <string name="consume_history">购买记录</string>
+    <string name="wallet">钱包</string>
+    <string name="sign">签到</string>
+    <string name="today_has_sign">(今日已签到)</string>
+    <string name="receive_address">收货地址</string>
+    <string name="my_agent">我的商户</string>
+    <string name="i_want_a_teacher">我要拜师</string>
+    <string name="start_luck">开始抽奖</string>
+    <string name="invite_reward">邀请奖励</string>
+    <string name="set">设置</string>
 </resources>

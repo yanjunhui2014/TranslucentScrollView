@@ -2,10 +2,11 @@ package test.com;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.View;
 
-import test.com.utils.SizeUtils;
+import test.com.base.BaseActivity;
+import test.com.impl.ActionBarClickListener;
+import test.com.widget.TranslucentActionBar;
 import test.com.widget.TranslucentScrollView;
 
 /**
@@ -13,10 +14,11 @@ import test.com.widget.TranslucentScrollView;
  * email:303767416@qq.com
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements ActionBarClickListener, TranslucentScrollView.TranslucentChangedListener {
 
-    private Toolbar toolbar;
-    private TranslucentScrollView scrollView;
+    private TranslucentScrollView translucentScrollView;
+    private TranslucentActionBar actionBar;
+    private View zoomView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,11 +28,39 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
-    void init() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar_test);
-        scrollView = (TranslucentScrollView) findViewById(R.id.trans_scrollview);
-        scrollView.setTransView(toolbar, getResources().getColor(R.color.colorPrimary), SizeUtils.dip2px(this, 50), SizeUtils.dip2px(this, 300));
+    private void init() {
+        actionBar = (TranslucentActionBar) findViewById(R.id.actionbar);
+        //初始actionBar
+        actionBar.setData("个人中心", 0, null, 0, null, null);
+        //开启渐变
+        actionBar.setNeedTranslucent();
+        //设置状态栏高度
+        actionBar.setStatusBarHeight(getStatusBarHeight());
 
-        getSupportActionBar().hide();
+        translucentScrollView = (TranslucentScrollView) findViewById(R.id.pullzoom_scrollview);
+        //设置透明度变化监听
+        translucentScrollView.setTranslucentChangedListener(this);
+        //关联需要渐变的视图
+        translucentScrollView.setTransView(actionBar);
+
+        zoomView = findViewById(R.id.lay_header);
+        //关联伸缩的视图
+        translucentScrollView.setPullZoomView(zoomView);
     }
+
+    @Override
+    public void onLeftClick() {
+
+    }
+
+    @Override
+    public void onRightClick() {
+
+    }
+
+    @Override
+    public void onTranslucentChanged(int transAlpha) {
+        actionBar.tvTitle.setVisibility(transAlpha > 48 ? View.VISIBLE : View.GONE);
+    }
+
 }
