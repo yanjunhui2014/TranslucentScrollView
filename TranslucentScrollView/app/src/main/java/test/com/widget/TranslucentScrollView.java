@@ -104,6 +104,15 @@ public class TranslucentScrollView extends ScrollView {
     }
 
     /**
+     * 设置渐变颜色
+     *
+     * @param colorRes 渐变的颜色
+     */
+    public void setTransColor(@ColorInt int colorRes) {
+        this.transColor = colorRes;
+    }
+
+    /**
      * 设置渐变视图
      *
      * @param transView  渐变的视图

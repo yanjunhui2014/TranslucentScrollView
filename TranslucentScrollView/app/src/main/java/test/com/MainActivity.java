@@ -31,7 +31,7 @@ public class MainActivity extends BaseActivity implements ActionBarClickListener
     private void init() {
         actionBar = (TranslucentActionBar) findViewById(R.id.actionbar);
         //初始actionBar
-        actionBar.setData("个人中心", 0, null, 0, null, null);
+        actionBar.setData("测试", 0, null, 0, null, null);
         //开启渐变
         actionBar.setNeedTranslucent();
         //设置状态栏高度
@@ -42,6 +42,8 @@ public class MainActivity extends BaseActivity implements ActionBarClickListener
         translucentScrollView.setTranslucentChangedListener(this);
         //关联需要渐变的视图
         translucentScrollView.setTransView(actionBar);
+        //设置ActionBar键渐变颜色
+        translucentScrollView.setTransColor(getResources().getColor(R.color.orange_dft));
 
         zoomView = findViewById(R.id.lay_header);
         //关联伸缩的视图
