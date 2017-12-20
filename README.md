@@ -9,3 +9,6 @@
 1、自定义一个类，继承自ScrollView，并重写它的 onScrollChanged 方法；
 
 2、在 onScrollChanged 中获取 ScrollView 在Y轴的移动距离，并根据此距离改变 Toolbar(标题栏) 的透明度。
+
+2017年12月20日15:35:44提交版本优化
+1、单独提取出ActionBar颜色设置方法，以便调用。
