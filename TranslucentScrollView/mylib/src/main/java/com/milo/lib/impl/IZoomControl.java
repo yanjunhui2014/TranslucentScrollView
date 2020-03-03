@@ -21,6 +21,14 @@ public interface IZoomControl {
     void addNormalView(int... layoutId);
 
     /**
+     * 设置阻力
+     *
+     * @param damping 0.0f-1.0f，值越小，阻力越大，0.0f则不能体现出拉伸效果
+     * @param dampDistance 阻力生效开始距离，-1代表默认值 {@link TranslucentScrollView#DFT_TRANSSTARTY}}
+     */
+    void setDamping(float damping, int dampDistance);
+
+    /**
      * 关联渐变视图
      *
      * @param transView   - 需要渐变的视图

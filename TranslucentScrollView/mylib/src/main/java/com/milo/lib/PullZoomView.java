@@ -98,6 +98,11 @@ public class PullZoomView extends LinearLayout implements IZoomControl {
     }
 
     @Override
+    public void setDamping(float damping, int dampDistance) {
+        mLayoutTransSV.setDamping(damping, dampDistance);
+    }
+
+    @Override
     public void attachTransView(View transView, int transColor, int transStartY, int transEndY) {
         mLayoutTransSV.setTransView(transView, transColor, transStartY, transEndY);
     }

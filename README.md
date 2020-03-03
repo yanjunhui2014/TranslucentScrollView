@@ -13,6 +13,8 @@
     PullZoomView.setHeaderView(R.layout.view_header);
     //设置普通（追加）视图，可以添加多个
     PullZoomView.addNormalView(R.layout.view_normal, R.layout.view_normal);
+	//设置阻力系数
+	PullZoomView.setDamping(0.2f, 0);
     
     //关联渐变视图 - 可选
     PullZoomView.attachTransView(mActionBar, getResources().getColor(R.color.colorPrimary), -1, -1);

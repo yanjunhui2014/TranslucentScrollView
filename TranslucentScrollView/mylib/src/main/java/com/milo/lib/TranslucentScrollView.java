@@ -41,9 +41,16 @@ public class TranslucentScrollView extends ScrollView {
     private int  transEndY   = 300;
 
     //渐变开始默认位置，Y轴，50dp
-    public final int DFT_TRANSSTARTY = 50;
+    public final int DFT_TRANSSTARTY  = 50;
     //渐变结束默认位置，Y轴，300dp
-    public final int DFT_TRANSENDY   = 300;
+    public final int DFT_TRANSENDY    = 300;
+    //默认阻力开始生效距离
+    public final int DFT_DAMPDISTANCE = 50;
+
+    //阻力系数
+    private float mDamping       = 0.0f;
+    //阻力生效距离
+    private int   mDamplDistance = 0;
 
     private TranslucentScrollView.TranslucentChangedListener translucentChangedListener;
 
@@ -62,6 +69,7 @@ public class TranslucentScrollView extends ScrollView {
 
     public TranslucentScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mDamplDistance = SizeUtils.dip2px(context, DFT_DAMPDISTANCE);
     }
 
     public TranslucentScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -138,6 +146,16 @@ public class TranslucentScrollView extends ScrollView {
             throw new IllegalArgumentException("transStartY 不得等于 transEndY .. ");
         } else if (this.transStartY > this.transEndY) {
             throw new IllegalArgumentException("transStartY 不得大于 transEndY .. ");
+        }
+    }
+
+    public void setDamping(float damping, int dampDistance) {
+        if (damping < 0.0f || damping > 1.0f) {
+            throw new IllegalArgumentException("damping 取值需要在 0.0f-1.0f 之间");
+        }
+        this.mDamping = damping;
+        if (dampDistance != -1) {
+            mDamplDistance = SizeUtils.dip2px(getContext(), dampDistance);
         }
     }
 
@@ -222,7 +240,12 @@ public class TranslucentScrollView extends ScrollView {
                         break;
                     }
                     mScaling = true;
-                    params.height = zoomViewInitHeight + distance;
+                    if (mDamping == 0.0f) {
+                        params.height = zoomViewInitHeight + distance;
+                    } else {
+                        float appendHeight = (distance <= mDamplDistance ? distance : mDamplDistance + ((distance - mDamplDistance) * mDamping));
+                        params.height = zoomViewInitHeight + (int) appendHeight;
+                    }
 
                     zoomView.setLayoutParams(params);
                     return true;

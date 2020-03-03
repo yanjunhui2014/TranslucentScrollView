@@ -50,6 +50,7 @@ public class SecondDemoActivity extends BaseActivity {
 
         mPullZoomView.setHeaderView(R.layout.view_header);
         mPullZoomView.addNormalView(R.layout.view_normal, R.layout.view_normal);//可以连续添加多个
+        mPullZoomView.setDamping(0.2f, 0);
 
         ViewGroup.LayoutParams params = mStatusBarHolder.getLayoutParams();
         params.height += SystemBarUtils.getStatusBarHeight(this);
