@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@mipmap/bg_banner_my"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="137dp"
+        android:layout_height="137dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/bg_avatar">
+
+        <ImageView
+            android:id="@+id/img_avatar"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/dft_avatar" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/text_white"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/auther"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_fans"
+            style="@style/text_white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text="@string/email"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+</RelativeLayout>
