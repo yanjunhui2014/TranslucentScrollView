@@ -1,14 +1,29 @@
-# TranslucentScrollView
-自定义ScrollView实现Toolbar（标题栏）渐变
+#TranslucentScrollView
 
-效果如图：
-![image](https://github.com/yanjunhui2014/TranslucentScrollView/blob/master/TranslucentScrollView/gif/device-2016-12-26-192438.gif)
-
-编程思想：
-
-1、自定义一个类，继承自ScrollView，并重写它的 onScrollChanged 方法；
-
-2、在 onScrollChanged 中获取 ScrollView 在Y轴的移动距离，并根据此距离改变 Toolbar(标题栏) 的透明度。
-
-2017年12月20日15:35:44提交版本优化
-1、单独提取出ActionBar颜色设置方法，以便调用。
+   效果如图：
+   ![image](https://github.com/yanjunhui2014/TranslucentScrollView/blob/master/TranslucentScrollView/gif/device-2016-12-26-192438.gif)
+   
+   用法请参见
+   
+   主要API
+   
+   ```
+    //设置HeaderView（也就是拉伸区域）
+    PullZoomView.setHeaderView(R.layout.view_header);
+    //设置普通（追加）视图，可以添加多个
+    PullZoomView.addNormalView(R.layout.view_normal, R.layout.view_normal);
+    
+    //关联渐变视图 - 可选
+    PullZoomView.attachTransView(mActionBar, getResources().getColor(R.color.colorPrimary), -1, -1);
+    //设置透明度变化监听 - 可选
+    PullZoomView.setTranslucentChangedListener(new TranslucentScrollView.TranslucentChangedListener() {
+          @Override
+          public void onTranslucentChanged(int transAlpha) {
+               //回调alpah值，0-255
+          }
+     });
+     //隐藏ScrollBar - 可选
+     PullZoomView.mLayoutTransSV.setVerticalScrollBarEnabled(false);
+   ```
+   
+   
