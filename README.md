@@ -4,7 +4,7 @@
    ![image](https://github.com/yanjunhui2014/TranslucentScrollView/blob/master/TranslucentScrollView/gif/device-2016-12-26-192438.gif)
    
    用法请参见
-   [D](https://github.com/yanjunhui2014/TranslucentScrollView/blob/master/TranslucentScrollView/app/src/main/java/com/milo/demo/ui/SecondDemoActivity.java)
+   [Demo](https://github.com/yanjunhui2014/TranslucentScrollView/blob/master/TranslucentScrollView/app/src/main/java/com/milo/demo/ui/SecondDemoActivity.java)
    
    主要API
    
